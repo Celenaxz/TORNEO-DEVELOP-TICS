@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Torneo.App.Dominio;
+
 namespace Torneo.App.Persistencia
 {
-    private class RepositorioMunicipio: IRepositorioMunicipio
+    public class RepositorioMunicipio : IRepositorioMunicipio
     {
+        private readonly DataContext _dataContext = new DataContext();
         
+        public Municipio AgregarMunicipio(Municipio municipio)
+        {
+            var municipioInsertado = _dataContext.Municipios.Add(municipio);
+            _dataContext.SaveChanges();
+            return municipioInsertado.Entity;
+        }
     }
 }
