@@ -3,7 +3,7 @@ using Torneo.App.Dominio;
 
 namespace Torneo.App.Persistencia
 {
-    public class RepositorioDT : IRepositorioDT
+    public class RepositorioDT :IRepositorioDT
     {
         private readonly DataContext _dataContext = new DataContext();
         

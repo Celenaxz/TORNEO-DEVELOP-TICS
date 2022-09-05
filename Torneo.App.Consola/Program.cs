@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Torneo.App.Dominio;
 using Torneo.App.Persistencia;
 namespace Torneo.App.Consola
@@ -9,6 +8,7 @@ namespace Torneo.App.Consola
         private static IRepositorioMunicipio repoMunicipio = new RepositorioMunicipio();
         private static IRepositorioDT repoDT = new RepositorioDT();
         private static IRepositorioEquipo repoEquipo = new RepositorioEquipo();
+        private static IRepositorioPosicion repoPosicion = new RepositorioPosicion();
 
         static void Main(string[] args)
         {
@@ -19,6 +19,7 @@ namespace Torneo.App.Consola
                 Console.WriteLine("(1) Insertar Muinicipio");
                 Console.WriteLine("(2) Insertar Director Tecnico");
                 Console.WriteLine("(3) Insertar Equipo");
+                Console.WriteLine("(4) Insertar Posicion");
                 Console.WriteLine("(0) Salir");
                 Console.WriteLine("Ingrese Opcion---------------------");
                 opcion = Int32.Parse(Console.ReadLine());
@@ -33,6 +34,9 @@ namespace Torneo.App.Consola
                         break;
                     case 3:
                         AddEquipo();
+                        break;
+                    case 4:
+                        AddPosicion();
                         break;
                 }
             } while (opcion != 0);
@@ -55,11 +59,11 @@ namespace Torneo.App.Consola
         private static void AddDT()
         {
             Console.WriteLine("Ingrese nombre DT");
-            string nombre =  Console.ReadLine();
+            String nombre =  Console.ReadLine();
             Console.WriteLine("Ingrese documento");
-            string documento = Console.ReadLine();
+            String documento = Console.ReadLine();
             Console.WriteLine("Ingrese numero de telefono");
-            string numeroTlf = Console.ReadLine();
+            String numeroTlf = Console.ReadLine();
             var DT = new DirectorTecnico
             {
                 Nombre = nombre,
@@ -73,7 +77,7 @@ namespace Torneo.App.Consola
         private static void AddEquipo()
         {
             Console.WriteLine("Ingrese nombre del equipo");
-            string nombre = Console.ReadLine();
+            String nombre = Console.ReadLine();
             Console.WriteLine("Ungrese el id del Municipio");
             int idMunicipio = Int32.Parse(Console.ReadLine());
             Console.WriteLine("Ingrese id del Director Tecnico");
@@ -89,5 +93,15 @@ namespace Torneo.App.Consola
             
         }
 
+        private static void AddPosicion()
+        {
+            Console.WriteLine("Ingrese la posicion");
+            String nombre = Console.ReadLine();
+            var posicion = new Posicion
+            {
+                Nombre = nombre,
+            };
+            repoPosicion.AgregarPosicion(posicion);
+        }
     }
 }
