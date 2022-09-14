@@ -1,45 +1,50 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@ViewData["Title"] - Torneo.App.Frontend</title>
-  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+  <link rel="stylesheet" href="~/css/style.css">
   <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
   <link rel="stylesheet" href="~/Torneo.App.Frontend.styles.css" asp-append-version="true" />
 </head>
 
 <body>
+
   <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-      <div class="container">
-        <a asp-area="" asp-page="/Index"><img src="~/images/logo-torneo2.svg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-          <ul class="navbar-nav flex-grow-1">
+     <div class="bars__menu">
+        <span class="line1__bars-menu"></span>
+        <span class="line2__bars-menu"></span>
+        <span class="line3__bars-menu"></span>
+    </div>
+
+    <nav>
+      <div class="container_link">
+        <a asp-area="" asp-page="/Index"><img class="logo" src="~/images/logo_definitivo.svg" alt="Logo"></a>
+        <div class="container_nav">
+          <ul class="navbar_list">
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+              <a class="enlaces" asp-area="" asp-page="/Index">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+              <a class="enlaces" asp-area="" asp-page="#">Municipio</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  <div class="container">
+
+  <div class="container_welcome">
     <main role="main" class="pb-3">
       @RenderBody()
     </main>
   </div>
 
-  <footer class="border-top footer text-muted">
-    <div class="container">
+  <footer class="pie_de_pagina">
+    <div class="container_pie_de_pagina">
       &copy; 2022 - Torneo.App.Frontend - <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>
   </footer>

@@ -9,6 +9,7 @@ namespace Torneo.App.Consola
         private static IRepositorioDT repoDT = new RepositorioDT();
         private static IRepositorioEquipo repoEquipo = new RepositorioEquipo();
         private static IRepositorioPosicion repoPosicion = new RepositorioPosicion();
+        private static IRepositorioJugador repoJugador = new RepositorioJugador();
 
         static void Main(string[] args)
         {
@@ -20,6 +21,7 @@ namespace Torneo.App.Consola
                 Console.WriteLine("(2) Insertar Director Tecnico");
                 Console.WriteLine("(3) Insertar Equipo");
                 Console.WriteLine("(4) Insertar Posicion");
+                Console.WriteLine("(5) Ingresar Jugador");
                 Console.WriteLine("(0) Salir");
                 Console.WriteLine("Ingrese Opcion---------------------");
                 opcion = Int32.Parse(Console.ReadLine());
@@ -37,6 +39,9 @@ namespace Torneo.App.Consola
                         break;
                     case 4:
                         AddPosicion();
+                        break;
+                    case 5:
+                        AddJugador();
                         break;
                 }
             } while (opcion != 0);
@@ -102,6 +107,25 @@ namespace Torneo.App.Consola
                 Nombre = nombre,
             };
             repoPosicion.AgregarPosicion(posicion);
+        }
+
+        private static void AddJugador()
+        {
+            Console.WriteLine("Ingresar nombre del jugador");
+            String nombre = Console.ReadLine();
+            Console.WriteLine("Ingresar numero del jugador");
+            String numero = Console.ReadLine();
+            Console.WriteLine("Ingresar id equipo");
+            int idEquipo = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Ingresar id posicion");
+            int idPosicion = Int32.Parse(Console.ReadLine());
+
+            var jugador = new Jugador
+            {
+                Nombre = nombre,
+            };
+            
+            repoJugador.AgregarJugador(jugador, idEquipo, idPosicion);
         }
     }
 }
