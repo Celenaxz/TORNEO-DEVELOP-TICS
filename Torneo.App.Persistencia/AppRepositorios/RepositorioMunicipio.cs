@@ -6,12 +6,19 @@ namespace Torneo.App.Persistencia
     public class RepositorioMunicipio : IRepositorioMunicipio
     {
         private readonly DataContext _dataContext = new DataContext();
-        
+
         public Municipio AgregarMunicipio(Municipio municipio)
         {
             var municipioInsertado = _dataContext.Municipios.Add(municipio);
             _dataContext.SaveChanges();
             return municipioInsertado.Entity;
         }
+
+        public IEnumerable<Municipio> GetAllMunicipios()
+        {
+            return _dataContext.Municipios;
+        }
+
+
     }
 }

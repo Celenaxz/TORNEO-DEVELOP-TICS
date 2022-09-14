@@ -6,5 +6,6 @@ namespace Torneo.App.Persistencia
     public interface IRepositorioMunicipio
     {
         public Municipio AgregarMunicipio(Municipio municipio);
+        public IEnumerable<Municipio> GetAllMunicipios();
     }
 }
